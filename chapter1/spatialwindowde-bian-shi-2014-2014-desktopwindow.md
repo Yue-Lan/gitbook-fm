@@ -24,6 +24,8 @@ struct PeonyDesktopWindowDetails
 
 可以看到和spatial window相比，desktop window基本上没有太多成员上的变化，我们看看desktop window是怎么样改造自身的。
 
+
+
 ```c
 static void
 peony_desktop_window_init (PeonyDesktopWindow *window)
@@ -65,5 +67,5 @@ peony_desktop_window_init (PeonyDesktopWindow *window)
 }
 ```
 
-
+在
 
