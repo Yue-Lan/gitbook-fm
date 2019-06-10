@@ -2,7 +2,7 @@
 
 SpatialWindow的应用场景几乎没有，但是它是DestopWindow的父类，由于spatial window结构简单，如果要走完一遍文件管理器的流程，建议可以从这个window入手。
 
-虽然说spatial window是简化的文件管理器窗口，但是它仍然是window类的子类，同时需要实现window没有实现的工作，spatial window的结构在src/peony-spatial-window.h\(c\)中：
+虽然说spatial window是简化的文件管理器窗口，但是它仍然是window类的子类，spatial window的结构在src/peony-spatial-window.h\(c\)中：
 
 ```c
 struct _PeonySpatialWindow
