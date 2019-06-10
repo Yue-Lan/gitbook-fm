@@ -10,21 +10,23 @@
 
 我们看一看window类的结构，在src/peony-window.h中：
 
-\`\`\` {.c}
+\`\`\` 
 
 struct PeonyWindow
 
 {
 
-    GtkWindow parent\_object;
+```
+GtkWindow parent\_object;
 
 
 
-    PeonyWindowDetails \*details;
+PeonyWindowDetails \*details;
 
 
 
-    PeonyApplication \*application;
+PeonyApplication \*application;
+```
 
 };
 
