@@ -8,7 +8,29 @@
 
 ## 所有窗口的基类——Window
 
-确切的来说，
+我们看一看window类的结构，在src/peony-window.h中：
+
+\`\`\` {.c}
+
+struct PeonyWindow
+
+{
+
+    GtkWindow parent\_object;
+
+
+
+    PeonyWindowDetails \*details;
+
+
+
+    PeonyApplication \*application;
+
+};
+
+\`\`\`
+
+所有的文件管理器窗口，都可以从自身实例转化成window类的实例——事实上window类表示的是一个文件管理器窗口所包含的整体框架
 
 ## 简化的文件管理器窗口——SpatialWindow
 
