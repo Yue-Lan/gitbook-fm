@@ -12,6 +12,8 @@ ID看出------它是整个gnome的第一个项目。
 
 然而，在11年还是12年，gnome社区经历了一场非常剧烈的变革，gnome shell成为了gnome3的主推，由于gnome3和gnome2的分歧过大，一部分开发者fork了gnome2,于是这就形成了现在的mate。在gnome3的理念里，shell和shell的插件接管了整个桌面，随着gnome近年来的不断推进，shell对桌面的替换度越来越高------首先在gnome shell项目发起不久，gnome-panel项目就被废弃，取而代之的是shell的dash已经一系列的对dash定制的插件；在今年（2019），在今年（2019），ubuntu1910已经采用了shell插件\[desktop-icons\]\([https://gitlab.gnome.org/World/ShellExtensions/desktop-icons\)](https://gitlab.gnome.org/World/ShellExtensions/desktop-icons%29、)  替换了原先的nautilus桌面。可以说，目前shell已经在桌面交互的技术实现上完全替换了传统的文件管理器+dock/panel的形式。
 
+去年底我做过一次gnome shell的调研，一些详细的介绍可以参考之前做的ppt，这里就略过了。
+
 说到Linux桌面环境另外的一个桌面环境主要阵营是kde，对于kde的文件管理器dolphin我还没有具体的分析，除了上层界面是基于qt开发的kdt之外，kde底层io库也选择了自己开发的kio，而非原身是gnome-vfs的gvfs/gio。
 
 近年来dde和lxqt是qt阵营的新生力量，我从它们的文件管理器中获取了不少灵感，dde和lxqt都是采用的glib/gio和qt作为底层进行开发的，一个追求华丽，一个追求轻量，它们的理念都能从他们的文件管理器代码或者是别的项目的代码里看出。dde的界面确实美观，lxqt的内存确实够低，甚至低过xfce，这些都是能够吸引用户的地方。当然，mate和gnome以及我们的ukui都有能够吸引人的地方，不过我们可以看到现在很难再有令人瞩目和期待的gtk桌面环境诞生了，号称最美linux
