@@ -43,7 +43,7 @@ peony_desktop_window_init (PeonyDesktopWindow *window)
         /* shouldn't really be needed given our semantic type
      *      * of _NET_WM_TYPE_DESKTOP, but why not
      *           */
-        gtk_window_set_resizable (GTK_WINDOW (window),
+    gtk_window_set_resizable (GTK_WINDOW (window),
                                       FALSE);
 
     g_object_set_data (G_OBJECT (window), "is_desktop_window",
