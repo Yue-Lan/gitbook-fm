@@ -107,3 +107,67 @@ peony_desktop_window_init (PeonyDesktopWindow *window)
 
 在init中我们也看到了一下修改，move至（0,0），不允许手动resize，隐藏peony window的菜单栏和状态栏禁用CLOSE\_ACTION（快捷键ctrl+Q）
 
+```c
+static void
+peony_desktop_window_class_init (PeonyDesktopWindowClass *klass)
+{
+    GtkWidgetClass *wclass = GTK_WIDGET_CLASS (klass);
+    PeonyWindowClass *nclass = PEONY_WINDOW_CLASS (klass);
+
+    wclass->realize = realize;
+    wclass->unrealize = unrealize;
+    wclass->map = map;
+#if GTK_CHECK_VERSION (3, 22, 0)
+    wclass->draw = draw;
+#endif
+    nclass->window_type = PEONY_WINDOW_DESKTOP;
+    nclass->get_title = real_get_title;
+    nclass->get_icon = real_get_icon;
+
+    g_type_class_add_private (klass, sizeof (PeonyDesktopWindowDetails));
+}
+```
+
+```c
+static void
+realize (GtkWidget *widget)
+{
+    PeonyDesktopWindow *window;
+    PeonyDesktopWindowDetails *details;
+    window = PEONY_DESKTOP_WINDOW (widget);
+    details = window->details;
+
+    /* Make sure we get keyboard events */
+    gtk_widget_set_events (widget, gtk_widget_get_events (widget)
+                           | GDK_KEY_PRESS_MASK | GDK_KEY_RELEASE_MASK);
+    /* Do the work of realizing. */
+    GTK_WIDGET_CLASS (peony_desktop_window_parent_class)->realize (widget);
+
+    /* This is the new way to set up the desktop window */
+    set_wmspec_desktop_hint (gtk_widget_get_window (widget));
+
+    set_desktop_window_id (window, gtk_widget_get_window (widget));
+
+    details->size_changed_id =
+        g_signal_connect (gtk_window_get_screen (GTK_WINDOW (window)), "size_changed",
+                          G_CALLBACK (peony_desktop_window_screen_size_changed), window);
+}
+```
+
+```c
+static void
+set_wmspec_desktop_hint (GdkWindow *window)
+{
+    GdkAtom atom;
+
+    atom = gdk_atom_intern ("_NET_WM_WINDOW_TYPE_DESKTOP", FALSE);
+
+    gdk_property_change (window,
+                         gdk_atom_intern ("_NET_WM_WINDOW_TYPE", FALSE),
+                         gdk_x11_xatom_to_atom (XA_ATOM), 32,
+                         GDK_PROP_MODE_REPLACE, (guchar *) &atom, 1);
+}
+```
+
+是
+
