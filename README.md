@@ -10,9 +10,7 @@ ID看出------它是整个gnome的第一个项目。
 
 在Linux桌面Project开始时，人们想到必须要有一个应用能够绘制桌面，提供UI交互，而文件管理器由于其显示和管理文件的工作定位，非常适合这个任务。
 
-然而，在11年还是12年，gnome社区经历了一场非常剧烈的变革，gnome shell成为了gnome3的主推，由于gnome3和gnome2的分歧过大，一部分开发者fork了gnome2,于是这就形成了现在的mate。在gnome3的理念里，shell和shell的插件接管了整个桌面，随着gnome近年来的不断推进，shell对桌面的替换度越来越高------首先在gnome shell项目发起不久，gnome-panel项目就被废弃，取而代之的是shell的dash已经一系列的对dash定制的插件；
-
-
+然而，在11年还是12年，gnome社区经历了一场非常剧烈的变革，gnome shell成为了gnome3的主推，由于gnome3和gnome2的分歧过大，一部分开发者fork了gnome2,于是这就形成了现在的mate。在gnome3的理念里，shell和shell的插件接管了整个桌面，随着gnome近年来的不断推进，shell对桌面的替换度越来越高------首先在gnome shell项目发起不久，gnome-panel项目就被废弃，取而代之的是shell的dash已经一系列的对dash定制的插件；在今年（2019），ubuntu1910已经采用了shell插件\[desktop-icons\]\(https://gitlab.gnome.org/World/ShellExtensions/desktop-icons\)替换了原先的nautilus桌面。
 
 说到Linux桌面环境另外的一个桌面环境主要阵营是kde，对于kde的文件管理器dolphin我还没有具体的分析，除了上层界面是基于qt开发的kdt之外，kde底层io库也选择了自己开发的kio，而非原身是gnome-vfs的gvfs/gio。
 
