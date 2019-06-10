@@ -105,5 +105,5 @@ peony_desktop_window_init (PeonyDesktopWindow *window)
 }
 ```
 
-在
+在init中我们也看到了一下修改，move至（0,0），不允许手动resize，隐藏peony window的菜单栏和状态栏
 
