@@ -28,7 +28,5 @@ struct _PeonySpatialWindowDetails
 };
 ```
 
-可以看到spatial window有自己额外的菜单组和一些geometry保存（window state）相关的成员，在spatial window中，我们主要的成员除了继承自父类的menubar和statusbar之外，只有一个content
-
-box，这个content box会成为显示文件视图的容器。
+可以看到spatial window有自己额外的菜单组和一些geometry保存（window state）相关的成员，在spatial window中，我们主要的成员除了继承自父类的menubar和statusbar之外，剩下的重要成员只有一个content box，这个content box会成为显示文件视图的容器。
 
