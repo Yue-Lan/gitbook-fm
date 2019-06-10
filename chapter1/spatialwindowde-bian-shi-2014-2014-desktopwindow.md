@@ -60,7 +60,6 @@ peony_desktop_window_new (PeonyApplication *application,
 
     return window;
 }
-
 ```
 
 首先在new方法里就增加了不少限制，获取屏幕的大小作为初始值，覆盖delete-event禁止关闭事件的发生，由于desktop window的路径永远是桌面的路径，所以new的时候直接进入桌面目录也是可以的。
