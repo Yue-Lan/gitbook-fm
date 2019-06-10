@@ -72,5 +72,7 @@ struct PeonyWindowDetails
 
 我们看到有一个GtkUIManager，以及一组GtkActionGroup，这些是gtk2用于从xml文件中读取menu item以及accel的工具，这里的代码由于是从peony项目中截取的，实际上现在GtkUIManager已经被GtkBuilder取代了，这里仅仅提及一下它的作用，不详细的分析了。
 
-我们注意到在window的定义中还有一个windowpane以及它的list，注意留意一下它，回头我们还要继续分析这个成员，现在我们接着分析window的派生类。
+Bookmark这个类在peony魔改之后几乎没有什么用了，我们的收藏夹和caja以及nauilus的实现已经不同了，这里也不会分析。
+
+最后，我们注意到在window的定义中还有一个windowpane以及它的list，注意留意一下它，回头我们还要继续分析这个成员，现在我们接着分析window的派生类。
 
