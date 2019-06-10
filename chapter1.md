@@ -8,7 +8,7 @@
 
 ## 所有窗口的基类——Window
 
-我们看一看window类的结构，在src/peony-window.h中：
+我们看一看window类的结构，在src/peony-window.h（c）中：
 
 ```c
 struct PeonyWindow
