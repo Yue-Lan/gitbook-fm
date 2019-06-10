@@ -169,5 +169,5 @@ set_wmspec_desktop_hint (GdkWindow *window)
 }
 ```
 
-是
+看到desktop window的realize和map都是重写的，这里采用的是XAtom的DESKTOP标志实现的desktop window属性
 
