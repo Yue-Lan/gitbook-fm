@@ -118,9 +118,5 @@ struct _PeonyModule
 
 它是GTypModule的子类，我们可以猜测GTypeModule应该就是glib提供的插件机制的接口类，我们找到关于这个类的描述
 
-&gt;[GTypeModule](GTypeModule.html)provides a simple implementation of the[GTypePlugin](GTypePlugin.html)interface. The model of[GTypeModule](GTypeModule.html)is a dynamically loaded module which implements some number of types and interface implementations. When the module is loaded, it registers its types and interfaces using[`g_type_module_register_type()`](GTypeModule.html#g-type-module-register-type)and[`g_type_module_add_interface()`](GTypeModule.html#g-type-module-add-interface). As long as any instances of these types and interface implementations are in use, the module is kept loaded. When the types and interfaces are gone, the module may be unloaded. If the types and interfaces become used again, the module will be reloaded. Note that the last unref cannot happen in module code, since that would lead to the caller's code being unloaded before[`g_object_unref()`](gobject-The-Base-Object-Type.html#g-object-unref)returns to it.
-
-Keeping track of whether the module should be loaded or not is done by using a use count - it starts at zero, and whenever it is greater than zero, the module is loaded. The use count is maintained internally by the type system, but also can be explicitly controlled by[`g_type_module_use()`](GTypeModule.html#g-type-module-use)and[`g_type_module_unuse()`](GTypeModule.html#g-type-module-unuse). Typically, when loading a module for the first type,[`g_type_module_use()`](GTypeModule.html#g-type-module-use)will be used to load it so that it can initialize its types. At some later point, when the module no longer needs to be loaded except for the type implementations it contains,[`g_type_module_unuse()`](GTypeModule.html#g-type-module-unuse)is called.
-
-[GTypeModule](GTypeModule.html)does not actually provide any implementation of module loading and unloading. To create a particular module type you must derive from[GTypeModule](GTypeModule.html)and implement the load and unload functions in[GTypeModuleClass](GTypeModule.html#GTypeModuleClass).
+&gt;&gt;&gt;
 
