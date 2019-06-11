@@ -94,5 +94,5 @@ struct _PeonyNavigationWindowDetails
 };
 ```
 
-
+这个details比caja的details长很多，因为从is\_split\_view\_showing之后都是peony文件预览需要的组建了，我们先分析之前的成员
 
