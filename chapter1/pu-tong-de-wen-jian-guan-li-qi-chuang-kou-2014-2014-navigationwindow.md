@@ -26,3 +26,73 @@ struct _PeonyNavigationWindow
 
 接下来我们看一下details，在src/peony-window-private.h中：
 
+```c
+struct _PeonyNavigationWindowDetails
+{
+    GtkWidget *content_paned;
+    GtkWidget *content_box;
+    GtkActionGroup *navigation_action_group; /* owned by ui_manager */
+
+    GtkSizeGroup *header_size_group;
+
+    /* Side Pane */
+    int side_pane_width;
+    PeonySidebar *current_side_panel;
+
+    /* Menus */
+    GtkActionGroup *go_menu_action_group;
+    guint refresh_go_menu_idle_id;
+    guint go_menu_merge_id;
+
+    /* Toolbar */
+    GtkWidget *toolbar;
+
+    guint extensions_toolbar_merge_id;
+    GtkActionGroup *extensions_toolbar_action_group;
+
+    /* spinner */
+    gboolean    spinner_active;
+    GtkWidget  *spinner;
+
+    /* focus widget before the location bar has been shown temporarily */
+    GtkWidget *last_focus_widget;
+
+    /* split view */
+    GtkWidget *split_view_hpane;
+    gboolean is_split_view_showing;
+
+    /* hbox for kinds of preview views */
+    GtkBox *preview_hbox;
+
+    /* gtk_source_view */
+    GtkWidget *test_widget;
+    TestWidget *gtk_source_widget;
+
+    /* pdf view */
+    GtkWidget *pdf_swindow;
+    GtkWidget *pdf_view;
+
+    /* web view  for exel*/
+    GtkWidget *web_swindow;
+    GtkWidget *web_view;
+
+    /* empty view */
+    GtkWidget *empty_window;
+    GtkWidget *hint_view;
+
+    /* preview file name */
+    //as usual, we won't need use it. but it used in previewing an office or pdf file.
+    char *current_preview_filename;
+
+    /* filename for office */
+    char *current_previewing_office_filename;
+    char *loading_office_filename;
+    char *pending_preview_filename;
+
+    /* filename for pdf */
+    char *latest_pdf_flename;
+};
+```
+
+
+
