@@ -43,3 +43,23 @@ peony_application_startup (GApplication *app)
 
 这个peony\_module\_setup实际上就是加载所有插件的入口，我们接下去看
 
+```c
+void
+peony_module_setup (void)
+{
+    static gboolean initialized = FALSE;
+    GList *res;
+
+    if (!initialized)
+    {
+        initialized = TRUE;
+
+        load_module_dir (PEONY_EXTENSIONDIR);
+
+        eel_debug_call_at_shutdown (free_module_objects);
+    }
+}
+```
+
+可以看出这个方法内部的加载操作只会被执行一次，这里的PEONY\_EXTENSIONDIR宏表示的就是so文件所在的位置，我们继续往下分析：
+
