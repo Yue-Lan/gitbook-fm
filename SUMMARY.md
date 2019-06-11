@@ -17,7 +17,7 @@
   * [实践五、远程目录](gvfsgio/shi-jian-wu-3001-yuan-cheng-mu-lu.md)
   * [总结](gvfsgio/zong-jie.md)
 * [文件管理器扩展实现](wen-jian-guan-li-qi-kuo-zhan-shi-xian.md)
-  * 插件的加载和注册
+  * [插件的加载和注册](wen-jian-guan-li-qi-kuo-zhan-shi-xian/cha-jian-de-jia-zai-he-zhu-ce.md)
   * 插件的回调
   * 怎样写peony插件
 
