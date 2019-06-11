@@ -157,7 +157,7 @@ struct _PeonyModule
 }
 ```
 
-PeonyModule中的四个方法指针是由插件来实现的，我们在new了一个peonymodel之后马上将filename赋值给了path，然后某一个时间load方法被调用了。我们可以看到它是怎样从so中读取这些特定方法的。
+PeonyModule中的四个方法指针是由插件来实现的，我们在new了一个peonymodel之后马上将filename赋值给了path，然后某一个时间load方法被调用了。我们可以看到它是怎样从so中读取这些特定方法的：
 
 ```c
 static gboolean
