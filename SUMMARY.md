@@ -14,4 +14,5 @@
   * [实践二、u盘插拔](gvfsgio/shi-jian-er-3001-u-pan-cha-ba.md)
   * [实践三、回收站](gvfsgio/shi-jian-san-3001-hui-shou-zhan.md)
   * [实践四、打开文件](gvfsgio/shi-jian-si-3001-da-kai-wen-jian.md)
+  * [实践五、远程目录](gvfsgio/shi-jian-wu-3001-yuan-cheng-mu-lu.md)
 
