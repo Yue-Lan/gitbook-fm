@@ -96,9 +96,17 @@ struct PeonyWindowSlot
 };
 ```
 
-我们又看到了文件管理器中一个关键类PeonyView，它实际上是之前我们提及过的content view；可以看出实际上上图中的content view并不是直接在window中的，而是由slot进行管理
+我们又看到了文件管理器中一个关键类PeonyView，它实际上是之前我们提及过的content view；可以看出实际上上图中的content view并不是直接在window中的，而是由slot进行管理，我们最后会将content view填入window的content box中，这个box实际上是slot的cotent box。
 
+我们整理一下window-pane-slot的关系
 
+| window | pane/active-pane | slot/active-pane | pane/active-slot-in-pane |
+| :--- | :--- | :--- | :--- |
+| spatial window | 1/1 | 1/1 | 1/1 |
+| peony-navigation-window | 1/1 | n/1 | 1/1 |
+| caja-navigation-window | 2/1 | n/1 | 1/1 |
 
+由于spatial window之所以简单，只有一个slot也是重要的原因之一，而对于navigation window来说，是可以有多个pane和slot的，这个关系图可以用一张caja的截图表示的很清楚
 
+![](/assets/2019-06-11 10-25-09屏幕截图.png)在peony中，由于我们对工具栏和location bar的修改破坏了原有caja的架构，所以extra view就被禁用了。事实上这个pane的架构在我看来也不是很实用，我们下面着重分析一下这个slot究竟是如何运作的。
 
