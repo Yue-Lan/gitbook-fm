@@ -126,5 +126,13 @@ struct _PeonyModule
 
 
 
+```c
+{
+    G_OBJECT_CLASS (class)->finalize = peony_module_finalize;
+    G_TYPE_MODULE_CLASS (class)->load = peony_module_load;
+    G_TYPE_MODULE_CLASS (class)->unload = peony_module_unload;
+}
+```
 
+如果大家感兴趣可以仔细研究一下这个类，这里不会全部都讲，我们只关注load的过程，回到peony\_module\_load\_file，我们看到一个关键方法add\_module\_objects：
 
