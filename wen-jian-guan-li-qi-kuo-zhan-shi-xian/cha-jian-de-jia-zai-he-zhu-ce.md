@@ -63,3 +63,34 @@ peony_module_setup (void)
 
 可以看出这个方法内部的加载操作只会被执行一次，这里的PEONY\_EXTENSIONDIR宏表示的就是so文件所在的位置，我们继续往下分析：
 
+```c
+static void
+load_module_dir (const char *dirname)
+{
+    GDir *dir;
+
+    dir = g_dir_open (dirname, 0, NULL);
+
+    if (dir)
+    {
+        const char *name;
+
+        while ((name = g_dir_read_name (dir)))
+        {
+            if (g_str_has_suffix (name, "." G_MODULE_SUFFIX))
+            {
+                char *filename;
+
+                filename = g_build_filename (dirname,
+                                             name,
+                                             NULL);
+                peony_module_load_file (filename);
+            }
+        }
+        g_dir_close (dir);
+    }
+}
+```
+
+
+
