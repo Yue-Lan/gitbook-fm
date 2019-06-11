@@ -10,4 +10,5 @@
   * [Window的操作句柄——WindowSlot](chapter1/windowde-cao-zuo-ju-bing-2014-2014-windowslot.md)
   * [View和DirectoryView及其派生类的关系](chapter1/peonyviewhe-directoryview-ji-qi-pai-sheng-lei.md)
 * [GVFS/GIO](gvfsgio.md)
+  * [实践一、目录的遍历与监听](gvfsgio/shi-jian-yi-3001-mu-lu-de-bian-li-yu-jian-ting.md)
 
