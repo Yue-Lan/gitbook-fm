@@ -6,7 +6,7 @@ GVFS/GIO提供的uri支持是我们最受用的地方，有了这些支持，我
 
 gio本身属于glib的一部分，本身不会收到图形开发库的限制，关于gio的使用规范，其实可以参考
 
-\[glib源码\]\([https://salsa.debian.org/gnome-team/glib\)](https://salsa.debian.org/gnome-team/glib%29下提供的gio-tool，我的demo有许多不规范的地方。)
+* glib源码\([https://salsa.debian.org/gnome-team/glib\)](https://salsa.debian.org/gnome-team/glib%29下提供的gio-tool，我的demo有许多不规范的地方。)
 
 
 
