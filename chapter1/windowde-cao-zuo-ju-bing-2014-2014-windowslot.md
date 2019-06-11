@@ -83,3 +83,26 @@ void    peony_window_slot_is_in_active_pane (PeonyWindowSlot *slot, gboolean is_
 
 可以看出slot兼顾了window、pane、文件视图view以及自身状态，是各个重要成员的纽带。大家如果想要深入了解文件管理器的话，slot是不可不看的一个点。
 
+对于naviagtion window，它的slot更加复杂，在src/peony-navigation-window-slot.h中：
+
+```c
+struct PeonyNavigationWindowSlot
+{
+    PeonyWindowSlot parent;
+
+    PeonyBarMode bar_mode;
+    GtkTreeModel *viewer_model;
+    int num_viewers;
+
+    /* Back/Forward chain, and history list.
+     * The data in these lists are PeonyBookmark pointers.
+     */
+    GList *back_list, *forward_list;
+
+    /* Current views stuff */
+    GList *sidebar_panels;
+};
+```
+
+可以看出它还承担了navigation window的侧边栏以及历史管理的任务。
+
