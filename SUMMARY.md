@@ -7,4 +7,5 @@
   * [SpatialWindow的变式——DesktopWindow](chapter1/spatialwindowde-bian-shi-2014-2014-desktopwindow.md)
   * [“普通”的文件管理器窗口——NavigationWindow](chapter1/pu-tong-de-wen-jian-guan-li-qi-chuang-kou-2014-2014-navigationwindow.md)
   * [Window、WindowPane和WindowSlot](windowwindowpanehe-windowslot.md)
+  * [Window的操作句柄——WindowSlot](chapter1/windowde-cao-zuo-ju-bing-2014-2014-windowslot.md)
 

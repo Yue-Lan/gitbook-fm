@@ -1,0 +1,6 @@
+# Window的操作句柄——WindowSlot
+
+我们不难看出，window相当于一静态的ui界面，而slot是这个静态界面中能够切换显示内容的工具。slot的切换也是navigation window的一个设计上的亮点。slot的本质就是window的操作接口，我们对window的大部分操作最终都会交付给当前活跃的slot来完成，而活跃的slot在window上又永远处于可见的状态，这样我们的感觉就像是直接在操作window一样。
+
+
+
