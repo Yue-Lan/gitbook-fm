@@ -1,6 +1,10 @@
 # View和DirectoryView及其派生类的关系
 
+这一附图简要的描绘了View和DirectoryView及其派生类的关系：![](/assets/peonyview.png)
+
 和Window、WindowInfo，slot、slotinfo一样，View和DirectoryView及其派生类同样是接口的模式，但是比前面两组更加特别的是——View同时采用了register-factory的模式，view的注册和创建必须通过工厂模式实现。也许大家会疑惑register-factory本质上同样是接口，为何不把这两个接口整合在一起呢？
 
 理由也很简单，DirectoryView本身并不能构成一个完整的文件视图，它只是一个中间框架，如果将create方法整合进接口，directory view无法真正的实现create方法，所以才将create方法分离成单独的接口。
+
+大家可以通过解析icon view这个典型文件视图为切入点，研究register-factory的模式的实现，已经directory view中间层的设计实现，这里就不做具体阐述了。
 

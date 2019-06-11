@@ -8,5 +8,5 @@
   * [“普通”的文件管理器窗口——NavigationWindow](chapter1/pu-tong-de-wen-jian-guan-li-qi-chuang-kou-2014-2014-navigationwindow.md)
   * [Window、WindowPane和WindowSlot](windowwindowpanehe-windowslot.md)
   * [Window的操作句柄——WindowSlot](chapter1/windowde-cao-zuo-ju-bing-2014-2014-windowslot.md)
-  * [PeonyView和DirectoryView及其派生类](chapter1/peonyviewhe-directoryview-ji-qi-pai-sheng-lei.md)
+  * [View和DirectoryView及其派生类的关系](chapter1/peonyviewhe-directoryview-ji-qi-pai-sheng-lei.md)
 
