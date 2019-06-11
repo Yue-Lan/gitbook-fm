@@ -124,8 +124,6 @@ struct _PeonyModule
 >
 > [GTypeModule](GTypeModule.html)does not actually provide any implementation of module loading and unloading. To create a particular module type you must derive from[GTypeModule](GTypeModule.html)and implement the load and unload functions in[GTypeModuleClass](GTypeModule.html#GTypeModuleClass).
 
-
-
 ```c
 {
     G_OBJECT_CLASS (class)->finalize = peony_module_finalize;
@@ -134,5 +132,5 @@ struct _PeonyModule
 }
 ```
 
-如果大家感兴趣可以仔细研究一下这个类，这里不会全部都讲，我们只关注load的过程，回到peony\_module\_load\_file，我们看到一个关键方法add\_module\_objects：
+如果大家感兴趣可以仔细研究一下这个类以及GTypePlugin，这里我们只关注load的过程，回到peony\_module\_load\_file，我们看到一个关键方法add\_module\_objects：
 
