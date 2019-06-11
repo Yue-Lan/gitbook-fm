@@ -94,5 +94,7 @@ struct _PeonyNavigationWindowDetails
 };
 ```
 
-这个details比caja的details长很多，因为从is\_split\_view\_showing之后都是peony文件预览需要的组建了，我们先分析之前的成员
+这个details比caja的details长很多，因为从is\_split\_view\_showing之后都是peony文件预览需要的组建了，我们先分析之前的成员。
+
+从成员名来看，首先我们看到的是和文件视图相关的content paned和content box，content box在spatial window中也出现过，这个content paned似乎就是区别与spatial window的地方
 
