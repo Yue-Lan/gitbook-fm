@@ -5,38 +5,38 @@
 我们看一下slot提供的方法，在src/peony-window-slot.h中：
 
 ```c
-char *  peony_window_slot_get_title			   (PeonyWindowSlot *slot);
-void    peony_window_slot_update_title		   (PeonyWindowSlot *slot);
-void    peony_window_slot_update_icon		   (PeonyWindowSlot *slot);
-void    peony_window_slot_update_query_editor	   (PeonyWindowSlot *slot);
+char *  peony_window_slot_get_title               (PeonyWindowSlot *slot);
+void    peony_window_slot_update_title           (PeonyWindowSlot *slot);
+void    peony_window_slot_update_icon           (PeonyWindowSlot *slot);
+void    peony_window_slot_update_query_editor       (PeonyWindowSlot *slot);
 
-GFile * peony_window_slot_get_location		   (PeonyWindowSlot *slot);
-char *  peony_window_slot_get_location_uri		   (PeonyWindowSlot *slot);
+GFile * peony_window_slot_get_location           (PeonyWindowSlot *slot);
+char *  peony_window_slot_get_location_uri           (PeonyWindowSlot *slot);
 
-void    peony_window_slot_close			   (PeonyWindowSlot *slot);
-void    peony_window_slot_reload			   (PeonyWindowSlot *slot);
+void    peony_window_slot_close               (PeonyWindowSlot *slot);
+void    peony_window_slot_reload               (PeonyWindowSlot *slot);
 
-void			peony_window_slot_open_location	      (PeonyWindowSlot	*slot,
-        GFile			*location,
-        gboolean			 close_behind);
-void			peony_window_slot_open_location_with_selection (PeonyWindowSlot	    *slot,
-        GFile		    *location,
-        GList		    *selection,
-        gboolean		     close_behind);
-void			peony_window_slot_open_location_full       (PeonyWindowSlot	*slot,
-        GFile			*location,
-        PeonyWindowOpenMode	 mode,
-        PeonyWindowOpenFlags	 flags,
-        GList			*new_selection,
+void            peony_window_slot_open_location          (PeonyWindowSlot    *slot,
+        GFile            *location,
+        gboolean             close_behind);
+void            peony_window_slot_open_location_with_selection (PeonyWindowSlot        *slot,
+        GFile            *location,
+        GList            *selection,
+        gboolean             close_behind);
+void            peony_window_slot_open_location_full       (PeonyWindowSlot    *slot,
+        GFile            *location,
+        PeonyWindowOpenMode     mode,
+        PeonyWindowOpenFlags     flags,
+        GList            *new_selection,
         PeonyWindowGoToCallback   callback,
-        gpointer		 user_data);
-void			peony_window_slot_stop_loading	      (PeonyWindowSlot	*slot);
+        gpointer         user_data);
+void            peony_window_slot_stop_loading          (PeonyWindowSlot    *slot);
 
-void			peony_window_slot_set_content_view	      (PeonyWindowSlot	*slot,
-        const char		*id);
-const char	       *peony_window_slot_get_content_view_id      (PeonyWindowSlot	*slot);
-gboolean		peony_window_slot_content_view_matches_iid (PeonyWindowSlot	*slot,
-        const char		*iid);
+void            peony_window_slot_set_content_view          (PeonyWindowSlot    *slot,
+        const char        *id);
+const char           *peony_window_slot_get_content_view_id      (PeonyWindowSlot    *slot);
+gboolean        peony_window_slot_content_view_matches_iid (PeonyWindowSlot    *slot,
+        const char        *iid);
 
 void                    peony_window_slot_connect_content_view     (PeonyWindowSlot       *slot,
         PeonyView             *view);
@@ -44,31 +44,31 @@ void                    peony_window_slot_disconnect_content_view  (PeonyWindowS
         PeonyView             *view);
 
 #define peony_window_slot_go_to(slot,location, new_tab) \
-	peony_window_slot_open_location_full(slot, location, PEONY_WINDOW_OPEN_ACCORDING_TO_MODE, \
-						(new_tab ? PEONY_WINDOW_OPEN_FLAG_NEW_TAB : 0), \
-						NULL, NULL, NULL)
+    peony_window_slot_open_location_full(slot, location, PEONY_WINDOW_OPEN_ACCORDING_TO_MODE, \
+                        (new_tab ? PEONY_WINDOW_OPEN_FLAG_NEW_TAB : 0), \
+                        NULL, NULL, NULL)
 
 #define peony_window_slot_go_to_full(slot, location, new_tab, callback, user_data) \
-	peony_window_slot_open_location_full(slot, location, PEONY_WINDOW_OPEN_ACCORDING_TO_MODE, \
-						(new_tab ? PEONY_WINDOW_OPEN_FLAG_NEW_TAB : 0), \
-						NULL, callback, user_data)
+    peony_window_slot_open_location_full(slot, location, PEONY_WINDOW_OPEN_ACCORDING_TO_MODE, \
+                        (new_tab ? PEONY_WINDOW_OPEN_FLAG_NEW_TAB : 0), \
+                        NULL, callback, user_data)
 
 #define peony_window_slot_go_to_with_selection(slot,location,new_selection) \
-	peony_window_slot_open_location_with_selection(slot, location, new_selection, FALSE)
+    peony_window_slot_open_location_with_selection(slot, location, new_selection, FALSE)
 
-void    peony_window_slot_go_home			   (PeonyWindowSlot *slot,
+void    peony_window_slot_go_home               (PeonyWindowSlot *slot,
         gboolean            new_tab);
-void    peony_window_slot_go_up			   (PeonyWindowSlot *slot,
+void    peony_window_slot_go_up               (PeonyWindowSlot *slot,
         gboolean           close_behind);
 
-void    peony_window_slot_set_content_view_widget	   (PeonyWindowSlot *slot,
+void    peony_window_slot_set_content_view_widget       (PeonyWindowSlot *slot,
         PeonyView       *content_view);
-void    peony_window_slot_set_viewed_file		   (PeonyWindowSlot *slot,
+void    peony_window_slot_set_viewed_file           (PeonyWindowSlot *slot,
         PeonyFile      *file);
-void    peony_window_slot_set_allow_stop		   (PeonyWindowSlot *slot,
-        gboolean	    allow_stop);
-void    peony_window_slot_set_status			   (PeonyWindowSlot *slot,
-        const char	 *status);
+void    peony_window_slot_set_allow_stop           (PeonyWindowSlot *slot,
+        gboolean        allow_stop);
+void    peony_window_slot_set_status               (PeonyWindowSlot *slot,
+        const char     *status);
 
 void    peony_window_slot_add_extra_location_widget     (PeonyWindowSlot *slot,
         GtkWidget       *widget);
@@ -79,8 +79,9 @@ void    peony_window_slot_add_current_location_to_history_list (PeonyWindowSlot 
 void    peony_window_slot_is_in_active_pane (PeonyWindowSlot *slot, gboolean is_active);
 
 #endif /* PEONY_WINDOW_SLOT_H */
-
 ```
 
-可以看出slot兼顾了window、pane、文件视图view以及自身状态，是各个重要成员的纽带。
+可以看出slot兼顾了window、pane、文件视图view以及自身状态，是各个重要成员的纽带。大家如果想要深入了解文件管理器的话，slot是不可不看的一个点，
+
+
 
