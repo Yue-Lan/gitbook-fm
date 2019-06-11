@@ -202,7 +202,7 @@ peony_module_load (GTypeModule *gmodule)
 }
 ```
 
-如果大家感兴趣可以仔细研究一下这个类以及GTypePlugin，这里我们只关注load的过程，回到peony\_module\_load\_file，我们看到一个关键方法add\_module\_objects：
+如果大家感兴趣可以再仔细研究一下这个类以及GTypePlugin，这里我们只关注load的过程，回到peony\_module\_load\_file，我们看到一个关键方法add\_module\_objects：
 
 ```c
 static void
