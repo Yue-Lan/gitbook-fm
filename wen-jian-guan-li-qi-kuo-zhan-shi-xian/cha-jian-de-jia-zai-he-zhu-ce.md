@@ -141,6 +141,51 @@ struct _PeonyModule
 };
 ```
 
+PeonyModule中的四个方法指针是由插件来实现的，我们可以看到
+
+```c
+static gboolean
+peony_module_load (GTypeModule *gmodule)
+{
+    PeonyModule *module;
+
+    module = PEONY_MODULE (gmodule);
+
+    module->library = g_module_open (module->path, G_MODULE_BIND_LAZY | G_MODULE_BIND_LOCAL);
+
+    if (!module->library)
+    {
+        g_warning ("%s", g_module_error ());
+        return FALSE;
+    }
+
+    if (!g_module_symbol (module->library,
+                          "peony_module_initialize",
+                          (gpointer *)&module->initialize) ||
+            !g_module_symbol (module->library,
+                              "peony_module_shutdown",
+                              (gpointer *)&module->shutdown) ||
+            !g_module_symbol (module->library,
+                              "peony_module_list_types",
+                              (gpointer *)&module->list_types))
+    {
+
+        g_warning ("%s", g_module_error ());
+        g_module_close (module->library);
+
+        return FALSE;
+    }
+
+    g_module_symbol (module->library,
+                     "peony_module_list_pyfiles",
+                     (gpointer *)&module->list_pyfiles);
+
+    module->initialize (gmodule);
+
+    return TRUE;
+}
+```
+
 它是GTypModule的子类，我们可以猜测GTypeModule应该就是glib提供的插件机制的接口类，我们找到关于这个类的描述:
 
 > [GTypeModule](GTypeModule.html)provides a simple implementation of the[GTypePlugin](GTypePlugin.html)interface. The model of[GTypeModule](GTypeModule.html)is a dynamically loaded module which implements some number of types and interface implementations. When the module is loaded, it registers its types and interfaces using[`g_type_module_register_type()`](GTypeModule.html#g-type-module-register-type)and[`g_type_module_add_interface()`](GTypeModule.html#g-type-module-add-interface). As long as any instances of these types and interface implementations are in use, the module is kept loaded. When the types and interfaces are gone, the module may be unloaded. If the types and interfaces become used again, the module will be reloaded. Note that the last unref cannot happen in module code, since that would lead to the caller's code being unloaded before[`g_object_unref()`](gobject-The-Base-Object-Type.html#g-object-unref)returns to it.
