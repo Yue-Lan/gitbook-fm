@@ -32,14 +32,6 @@ struct _PeonyWindowPane
 };
 ```
 
-peonywindowslot现了，我们可以从注释中大概了解到window-pane-slot的设计框架，在spatial window中。slot的逻辑非常简单，因为一个window只有一个content box，它与window是一一对应的；但是在navigation window中则很麻烦，navigation窗口中可能会有多个slot，比如我们在window内打开新的标签，window pane会以gtk notebook子页的形式创建一个新的文件视图，并且新视图也会有对应的slot；如果打开附加窗格，window会新建一个pane，同时也会产生新的文件视图和slot（现在peony的附加窗格已经被文件预览代替了，所以不会产生新的pane以及文件视图和slot）。有一些特殊的sidebar 面板，比如文件树状图也会有pane和slot（但是同样的peony中被屏蔽了），而窗口永远只对当前具有事件焦点的pane和内部的slot对应的文件视图有效。实际上我们的peony已经屏蔽了navigation window创建新window pane的所有接口，这个架构里pane在设计上的重要性也就可有可无了。我们可以看出，window相当于一静态的ui界面，而slot是这个静态界面中能够切换显示内容的工具。slot的切换也是navigation window的一个设计上的亮点。slot的本质就是window的操作接口，我们对window的大部分操作最终都会交付给当前活跃的slot来完成，而活跃的slot在window上又永远处于可见的状态，这样我们的感觉就像是直接在操作window一样。
-
-
-
-![](/assets/navigation-window-pane-slot.png)
-
-
-
 继续看这个slot类，在src/peony-window-slot.h中
 
 ```c
@@ -103,6 +95,10 @@ struct PeonyWindowSlot
     gboolean visible;
 };
 ```
+
+我们又看到了文件管理器中一个关键类PeonyView，它实际上是之前我们提及过的content view；可以看出实际上上图中的content view并不是直接在window中的，而是由slot进行管理
+
+
 
 
 
