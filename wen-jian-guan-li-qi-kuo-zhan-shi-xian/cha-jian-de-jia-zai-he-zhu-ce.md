@@ -92,5 +92,5 @@ load_module_dir (const char *dirname)
 }
 ```
 
-
+很清晰，G\_MODULE\_SUFFIX应该是so的后缀名，遍历这个目录将so文件一个一个加载进去，看看peony\_module\_load\_file：
 
