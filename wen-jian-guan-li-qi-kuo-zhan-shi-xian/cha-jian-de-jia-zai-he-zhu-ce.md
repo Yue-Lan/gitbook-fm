@@ -95,6 +95,31 @@ load_module_dir (const char *dirname)
 很清晰，G\_MODULE\_SUFFIX应该是so的后缀名，遍历这个目录将so文件一个一个加载进去，看看peony\_module\_load\_file：
 
 ```c
+static PeonyModule *
+peony_module_load_file (const char *filename)
+{
+    PeonyModule *module;
+
+    module = g_object_new (PEONY_TYPE_MODULE, NULL);
+    module->path = g_strdup (filename);
+
+    if (g_type_module_use (G_TYPE_MODULE (module)))
+    {
+        add_module_objects (module);
+        g_type_module_unuse (G_TYPE_MODULE (module));
+        return module;
+    }
+    else
+    {
+        g_object_unref (module);
+        return NULL;
+    }
+}
+```
+
+这里出现一个PeonyModule类，我们分析一下这个类
+
+```c
 typedef struct _PeonyModule        PeonyModule;
 typedef struct _PeonyModuleClass   PeonyModuleClass;
 
