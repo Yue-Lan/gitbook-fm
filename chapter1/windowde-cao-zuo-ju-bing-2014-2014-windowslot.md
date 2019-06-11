@@ -81,7 +81,5 @@ void    peony_window_slot_is_in_active_pane (PeonyWindowSlot *slot, gboolean is_
 #endif /* PEONY_WINDOW_SLOT_H */
 ```
 
-可以看出slot兼顾了window、pane、文件视图view以及自身状态，是各个重要成员的纽带。大家如果想要深入了解文件管理器的话，slot是不可不看的一个点，
-
-
+可以看出slot兼顾了window、pane、文件视图view以及自身状态，是各个重要成员的纽带。大家如果想要深入了解文件管理器的话，slot是不可不看的一个点。
 
