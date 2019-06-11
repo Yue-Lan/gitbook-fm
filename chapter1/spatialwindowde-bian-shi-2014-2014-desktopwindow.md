@@ -171,5 +171,5 @@ set_wmspec_desktop_hint (GdkWindow *window)
 
 看到desktop window的realize方法是重写的，这里采用的是设置其XAtom的窗口标志为DESKTOP标志。有了这些准备工作，一个桌面窗口就能显现在我们眼前了。
 
-我们也可以直接从window继承来实现desktop window，不过这里的要点是我们从中学到了一些对窗口进行处理的技巧，而且事实上比想象中的要简单。
+我们也可以直接从window继承来实现desktop window，不过在文件管理器框架设计时，在逻辑上规定所有窗口必须是navigation window或者spatial window的实例或子类实例，这其实上是设计上的问题而已。不必过分纠结这些，关键是从desktop window类中我们从中学到了一些对窗口进行处理的技巧，而且事实上比想象中的要简单。
 
