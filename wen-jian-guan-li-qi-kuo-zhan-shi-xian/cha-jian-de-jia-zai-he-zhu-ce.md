@@ -141,7 +141,7 @@ struct _PeonyModule
 };
 ```
 
-PeonyModule中的四个方法指针是由插件来实现的，我们可以看到
+PeonyModule中的四个方法指针是由插件来实现的，我们可以看到它是怎样从so中读取这些特定方法的。
 
 ```c
 static gboolean
