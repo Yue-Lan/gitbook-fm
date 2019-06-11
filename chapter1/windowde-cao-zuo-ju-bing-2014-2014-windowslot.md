@@ -104,5 +104,5 @@ struct PeonyNavigationWindowSlot
 };
 ```
 
-可以看出它还承担了navigation window的侧边栏以及历史管理的任务。
+可以看出它还承担了navigation window的侧边栏以及历史管理的任务，不过我们一般只需要用到通用的slot提供的方法就行了。
 
