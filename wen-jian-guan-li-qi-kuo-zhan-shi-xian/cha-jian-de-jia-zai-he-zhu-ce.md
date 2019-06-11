@@ -264,5 +264,73 @@ peony_module_add_type (GType type)
 
 用于管理加载好的模块的，这样插件的加载就已经完成了，我们进入注册环节。（以上代码在libpeony-private/peony-module\*中，接下来的代码在libpeony-private/peony-extensions\*中）
 
+```c
+void
+peony_extension_register (gchar *filename, GObject *module)
+{
+    gboolean ext_state = TRUE; // new extensions are enabled by default.
+    gboolean ext_python = FALSE;
+    gchar *ext_filename;
 
+    ext_filename = g_strndup (filename, strlen(filename) - 3);
+    ext_state = peony_extension_get_state (ext_filename);
+
+    if (g_str_has_suffix (filename, ".py")) {
+        ext_python = TRUE;
+    }
+
+    Extension *ext = extension_new (ext_filename, ext_state, ext_python, module);
+    peony_extensions = g_list_append (peony_extensions, ext);
+}
+```
+
+peony\_extensions同样是一个用于管理插件的全局的GList指针，我们可以看到插件的名字就是so或者py文件的basename，我们看extension\_new:
+
+```c
+static Extension *
+extension_new (gchar *filename, gboolean state, gboolean python, GObject *module)
+{
+    Extension *ext;
+    GKeyFile *extension_file;
+    gchar *extension_filename;
+
+    ext = g_new0 (Extension, 1);
+    ext->filename = filename;
+    ext->name = NULL;
+    ext->description = NULL;
+    ext->author = NULL;
+    ext->copyright = NULL;
+    ext->version = NULL;
+    ext->website = NULL;
+    ext->state = state;
+    ext->module = module;
+
+    extension_file = g_key_file_new ();
+    extension_filename = g_strdup_printf(PEONY_DATADIR "/extensions/%s.peony-extension", filename);
+    if (g_key_file_load_from_file (extension_file, extension_filename, G_KEY_FILE_NONE, NULL))
+    {
+        ext->name = g_key_file_get_locale_string (extension_file, PEONY_EXTENSION_GROUP, "Name", NULL, NULL);
+        ext->description = g_key_file_get_locale_string (extension_file, PEONY_EXTENSION_GROUP, "Description", NULL, NULL);
+        ext->icon = g_key_file_get_string (extension_file, PEONY_EXTENSION_GROUP, "Icon", NULL);
+        ext->author = g_key_file_get_string_list (extension_file, PEONY_EXTENSION_GROUP, "Author", NULL, NULL);
+        ext->copyright = g_key_file_get_string (extension_file, PEONY_EXTENSION_GROUP, "Copyright", NULL);
+        ext->version = g_key_file_get_string (extension_file, PEONY_EXTENSION_GROUP, "Version", NULL);
+        ext->website = g_key_file_get_string (extension_file, PEONY_EXTENSION_GROUP, "Website", NULL);
+    }
+    g_key_file_free (extension_file);
+    g_free (extension_filename);
+
+    if (python)
+    {
+        ext->name = g_strconcat("Python: ", filename, NULL);
+        ext->description = "Python-peony extension";
+    }
+
+    return ext;
+}
+```
+
+其实最关键的只有filename和module，其它的可以没有，这个.peony-extension文件只是一个配置文件，能够使得文件管理器管理插件时显示的信息更全面而已，到这里注册流程也结束了。简单的来说，extension是一层module的封装，只是便于module插件的管理罢了。
+
+我们可以看出，整个加载和注册流程走完，我们的插件都没有被用到，这就说明插件不是一加载就触发的，我们下面需要寻找插件的触发是在何处。
 
