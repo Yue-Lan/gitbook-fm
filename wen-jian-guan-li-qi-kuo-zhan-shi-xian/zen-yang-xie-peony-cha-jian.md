@@ -2,7 +2,7 @@
 
 ## 基于现有架构
 
-以上述菜单插件为例，我们首先需要实现PeonyModule的3个方法（list\_pytypes和list）
+以上述菜单插件为例，我们首先需要实现PeonyModule的3个方法（list\_pytypes不用）
 
 我们可以参考现有的peony-extensions源码，这并不是很难的流程，关键在于获取回调的数据后我们该怎么做。
 
