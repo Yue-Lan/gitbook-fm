@@ -2,5 +2,10 @@
 
 * [https://github.com/Yue-Lan/directory-enum-and-monitor-demo](https://github.com/Yue-Lan/directory-enum-and-monitor-demo%29%29\)
 
+这个demo实现了
+
+* 遍历/usr/share/applications目录下的文件并读取特定文件，拷贝到 ~/.local/share/applications并修改desktop文件的Name\[zh\_CN\]项的值
+* 监听/usr/share/applications目录，如果有匹配的文件被添加，则拷贝到 ~/.local/share/applications并修改desktop文件的Name\[zh\_CN\]项的值；如果被移除，则删除~/.local/share/applications对应的文件。
+
 
 
