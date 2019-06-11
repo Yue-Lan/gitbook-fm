@@ -19,5 +19,5 @@
 * [文件管理器扩展实现](wen-jian-guan-li-qi-kuo-zhan-shi-xian.md)
   * [插件的加载和注册](wen-jian-guan-li-qi-kuo-zhan-shi-xian/cha-jian-de-jia-zai-he-zhu-ce.md)
   * [插件的回调](wen-jian-guan-li-qi-kuo-zhan-shi-xian/cha-jian-de-hui-diao.md)
-  * [怎样写peony插件](wen-jian-guan-li-qi-kuo-zhan-shi-xian/zen-yang-xie-peony-cha-jian.md)
+  * [怎样扩展](wen-jian-guan-li-qi-kuo-zhan-shi-xian/zen-yang-xie-peony-cha-jian.md)
 
