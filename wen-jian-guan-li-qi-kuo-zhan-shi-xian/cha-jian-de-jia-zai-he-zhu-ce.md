@@ -264,3 +264,5 @@ peony_module_add_type (GType type)
 
 用于管理加载好的模块的，这样插件的加载就已经完成了，我们进入注册环节。（以上代码在libpeony-private/peony-module\*中，接下来的代码在libpeony-private/peony-extensions\*中）
 
+
+
