@@ -96,5 +96,9 @@ struct _PeonyNavigationWindowDetails
 
 这个details比caja的details长很多，因为从is\_split\_view\_showing之后都是peony文件预览需要的组建了，我们先分析之前的成员。
 
-从成员名来看，首先我们看到的是和文件视图相关的content paned和content box，content box在spatial window中也出现过，这个content paned似乎就是区别与spatial window的地方，它其实是管理sidebar的控件
+从成员名来看，首先我们看到的是和文件视图相关的content paned和content box，content box在spatial window中也出现过，这个content paned似乎就是区别与spatial window的地方，它其实是管理sidebar的控件。
+
+navigation window也有自己额外的menu action，这里就不介绍了，side bar和tool bar我们也已经简要的提及过，我们看一下这个spinner，它其实是一个selection匹配器，可以使用正则表达式选中当前目录下匹配的文件。它在navigation窗口中的快捷键是ctrl+s。
+
+last focus widget是除了地址栏和搜索栏之外的最后聚焦的widget，split view hpane是用于产生额外文件视图的gtk pane，不过在peony中已经没有额外文件视图了（在之前文件管理器的附加窗格接口从顶层的menu action中被屏蔽导致无法触发），取而代之的是文件预览窗格，这两者的实现不同，但是预览窗格的触发机制是原先附加窗格机制修改而来的。
 
