@@ -134,3 +134,43 @@ struct _PeonyModule
 
 如果大家感兴趣可以仔细研究一下这个类以及GTypePlugin，这里我们只关注load的过程，回到peony\_module\_load\_file，我们看到一个关键方法add\_module\_objects：
 
+```c
+static void
+add_module_objects (PeonyModule *module)
+{
+    GObject *object = NULL;
+    GList *pyfiles = NULL;
+    gchar *filename = NULL;
+    const GType *types = NULL;
+    int num_types = 0;
+    int i;
+
+    module->list_types (&types, &num_types);
+    filename = g_path_get_basename (module->path);
+
+    /* fetch extensions details loaded through python-peony module */
+    if (module->list_pyfiles)
+    {
+        module->list_pyfiles(&pyfiles);
+    }
+
+    for (i = 0; i < num_types; i++)
+    {
+        if (types[i] == 0)   /* Work around broken extensions */
+        {
+            break;
+        }
+
+        if (module->list_pyfiles)
+        {
+            filename = g_strconcat(g_list_nth_data(pyfiles, i), ".py", NULL);
+        }
+
+        object = peony_module_add_type (types[i]);
+        peony_extension_register (filename, object);
+    }
+}
+```
+
+我们还在这里看到了python的插件列表，其实这个地方重要的方法有两个peony\_module\_add\_type和peony\_extension\_register，我们先看第一个
+
