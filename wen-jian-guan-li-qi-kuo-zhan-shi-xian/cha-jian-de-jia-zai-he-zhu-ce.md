@@ -118,5 +118,5 @@ struct _PeonyModule
 
 它是GTypModule的子类，我们可以猜测GTypeModule应该就是glib提供的插件机制的接口类，我们找到关于这个类的描述
 
-&gt;&gt;&gt;
+
 
