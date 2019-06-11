@@ -22,5 +22,5 @@ struct _PeonyNavigationWindow
 };
 ```
 
-我们注意到了它的几个典型的特性成员，首先是SidePane，它是文件管理器的侧边栏，底下有一个sidebar\_panels的GList，如果大家用过mate-caja，就能知道sidebar可以使用下拉菜单进行内容面板的切换，其实这个list在目前的peony中的意义不大。剩下的是工具栏的布局成员，我们需要通过这些成员控制工具栏上的控件的布局
+我们注意到了它的几个典型的特性成员，首先是SidePane，它是文件管理器的侧边栏，底下有一个sidebar\_panels的GList，如果大家用过mate-caja，就能知道sidebar可以使用下拉菜单进行内容面板的切换，其实这个list在目前的peony中的意义不大。剩下的是工具栏的布局成员，我们需要通过这些成员控制工具栏上的控件的布局。
 
