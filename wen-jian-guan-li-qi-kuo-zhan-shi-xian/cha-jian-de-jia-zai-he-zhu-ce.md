@@ -94,3 +94,27 @@ load_module_dir (const char *dirname)
 
 很清晰，G\_MODULE\_SUFFIX应该是so的后缀名，遍历这个目录将so文件一个一个加载进去，看看peony\_module\_load\_file：
 
+```c
+typedef struct _PeonyModule        PeonyModule;
+typedef struct _PeonyModuleClass   PeonyModuleClass;
+
+struct _PeonyModule
+{
+    GTypeModule parent;
+
+    GModule *library;
+
+    char *path;
+
+    void (*initialize) (GTypeModule  *module);
+    void (*shutdown)   (void);
+
+    void (*list_types) (const GType **types,
+                        int          *num_types);
+    void (*list_pyfiles) (GList     **pyfiles);
+
+};
+```
+
+它是GTypModule的子类，我们可以猜测GTypeModule应该就是glib提供的插件机制的接口类，我们找到关于这个类的描述
+
