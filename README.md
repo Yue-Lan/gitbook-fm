@@ -4,11 +4,11 @@
 
 ID看出------它是整个gnome的第一个项目。
 
-* \[这里可以看到gnome的文件管理器项目nautilus\]\(https://gitlab.gnome.org/GNOME/nautilus）
+* [https://gitlab.gnome.org/GNOME/nautilus](https://gitlab.gnome.org/GNOME/nautilus "nautilus")
 
 在Linux桌面Project开始时，人们想到必须要有一个应用能够绘制桌面，提供UI交互，而文件管理器由于其显示和管理文件的工作定位，非常适合这个任务。
 
-然而，在11年还是12年，gnome社区经历了一场非常剧烈的变革，gnome shell成为了gnome3的主推，由于gnome3和gnome2的分歧过大，一部分开发者fork了gnome2,于是这就形成了现在的mate。在gnome3的理念里，shell和shell的插件接管了整个桌面，随着gnome近年来的不断推进，shell对桌面的替换度越来越高------首先在gnome shell项目发起不久，gnome-panel项目就被废弃，取而代之的是shell的dash已经一系列的对dash定制的插件；在今年（2019），在今年（2019），ubuntu1910已经采用了shell插件\[desktop-icons\]\(https://gitlab.gnome.org/World/ShellExtensions/desktop-icons\)  替换了原先的nautilus桌面。可以说，目前shell已经在桌面交互的技术实现上完全替换了传统的文件管理器+dock/panel的形式。
+然而，在11年还是12年，gnome社区经历了一场非常剧烈的变革，gnome shell成为了gnome3的主推，由于gnome3和gnome2的分歧过大，一部分开发者fork了gnome2,于是这就形成了现在的mate。在gnome3的理念里，shell和shell的插件接管了整个桌面，随着gnome近年来的不断推进，shell对桌面的替换度越来越高------首先在gnome shell项目发起不久，gnome-panel项目就被废弃，取而代之的是shell的dash已经一系列的对dash定制的插件；在今年（2019），在今年（2019），ubuntu1910已经采用了shell插件[https://gitlab.gnome.org/World/ShellExtensions/desktop-icons](https://gitlab.gnome.org/World/ShellExtensions/desktop-icons "desktop-icon")替换了原先的nautilus桌面。可以说，目前shell已经在桌面交互的技术实现上完全替换了传统的文件管理器+dock/panel的形式。
 
 去年底我做过一次gnome shell的调研，一些详细的介绍可以参考之前做的ppt，这里就略过了。
 
