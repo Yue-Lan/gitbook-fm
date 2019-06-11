@@ -8,5 +8,5 @@ gio本身属于glib的一部分，本身不会收到图形开发库的限制，�
 
 * glib源码\([https://salsa.debian.org/gnome-team/glib\)](https://salsa.debian.org/gnome-team/glib%29下提供的gio-tool，我的demo有许多不规范的地方。)
 
-
+我的demo有许多不规范的地方。
 
