@@ -21,7 +21,7 @@ peony_application_startup (GApplication *app)
     G_APPLICATION_CLASS (peony_application_parent_class)->startup (app);
 
 ...........
-    
+
     /* initialize peony modules */
     peony_module_setup ();
 
@@ -41,5 +41,5 @@ peony_application_startup (GApplication *app)
 }
 ```
 
-
+这个peony\_module\_setup实际上就是加载所有插件的入口，我们接下去看
 
