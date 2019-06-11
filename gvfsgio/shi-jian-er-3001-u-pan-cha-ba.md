@@ -1,6 +1,6 @@
 # 实践二、u盘插拔
 
-[https://github.com/Yue-Lan/volume-monitor-demo](https://github.com/Yue-Lan/volume-monitor-demo)
+* [https://github.com/Yue-Lan/volume-monitor-demo](https://github.com/Yue-Lan/volume-monitor-demo)
 
 这个demo给出了GVolumeMonitor的用法，当然它不止可以监听u盘。
 
