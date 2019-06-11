@@ -11,4 +11,5 @@
   * [View和DirectoryView及其派生类的关系](chapter1/peonyviewhe-directoryview-ji-qi-pai-sheng-lei.md)
 * [GVFS/GIO](gvfsgio.md)
   * [实践一、目录的遍历与监听](gvfsgio/shi-jian-yi-3001-mu-lu-de-bian-li-yu-jian-ting.md)
+  * [实践二、u盘插拔](gvfsgio/shi-jian-er-3001-u-pan-cha-ba.md)
 
