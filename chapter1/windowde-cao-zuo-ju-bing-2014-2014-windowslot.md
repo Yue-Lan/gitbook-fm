@@ -106,3 +106,9 @@ struct PeonyNavigationWindowSlot
 
 可以看出它还承担了navigation window的侧边栏以及历史管理的任务，不过我们一般只需要用到通用的slot提供的方法就行了。
 
+![](/assets/windowandslot.png)
+
+事实上我们很少直接从window和slot提供的方法进行操作，而是使用等价的windowinfo和slotinfo进行操作，我们可以把这两个info看成是这两个实例通过类型转换转化而成的接口类。这两个类在源码结构中有更加广泛的应用上下文------由于peony的Makefile规则规定，libpeony-private下的文件无法直接调用src下的大部分接口，所以才会由这两个info类进行代劳，大家如果对glib接口实现感兴趣的话可以参考src/peony-window\*和peony-window-info\*的代码，看看它们是如何配合工作的。
+
+当然，我们把所有源码放在一个目录下的话不要接口也无所谓了，事实上现在的nautilus就是如此。
+

@@ -1,0 +1,4 @@
+# View和DirectoryView及其派生类的关系
+
+和Window、WindowInfo，slot、slotinfo一样，View和DirectoryView及其派生类同样是接口的模式，但是比前面两组更加特别的是——View同时采用了register-factory的模式
+
