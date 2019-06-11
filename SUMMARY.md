@@ -12,4 +12,5 @@
 * [GVFS/GIO](gvfsgio.md)
   * [实践一、目录的遍历与监听](gvfsgio/shi-jian-yi-3001-mu-lu-de-bian-li-yu-jian-ting.md)
   * [实践二、u盘插拔](gvfsgio/shi-jian-er-3001-u-pan-cha-ba.md)
+  * [实践三、回收站](gvfsgio/shi-jian-san-3001-hui-shou-zhan.md)
 
