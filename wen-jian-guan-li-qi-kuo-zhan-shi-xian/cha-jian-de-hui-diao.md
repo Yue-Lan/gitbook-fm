@@ -128,9 +128,7 @@ get_all_extension_menu_items (GtkWidget *window,
 }
 ```
 
-这个peony\_extensions\_get\_for\_type很关键，它能够区分插件的类型，这里我们是menu
-
-provider类型的插件集合
+这个peony\_extensions\_get\_for\_type很关键，它能够区分插件的类型，这里我们是menu provider类型的插件集合，注意我们的插件类型是在extension的代码中定义的（通过向module中添加menu provider的接口）。
 
 ```c
 GList *
@@ -186,5 +184,5 @@ peony_menu_provider_get_file_items (PeonyMenuProvider *provider,
 
 实际上这是一个代理方法，我们从peony\_extensions\_get\_for\_type获取的extension的module作为参数被传入这个方法，而window这是现在的directory view，files是对应的selection，这样，我们就能通过预留的接口进行流程化的处理，并且返回一个menu items的list供与菜单显示了。需要注意的是我们对menu的响应需要在插件内部连接对应item的activate信号进行处理。
 
-插件的回调情景非常的多，这只是其中很典型的一个，它穿插在peony的各个源文件里，而并不是一个像插件加载和注册一样具有固定的架构。反过来说，插件也是既定的架构，所以说插件也不是万能的。当然我在对文件管理器进行开发的时候，也会斟酌一个新功能是否适合用现有的插件机制进行开发，这样对于代码的可维护性较好。
+插件的回调情景非常的多，这只是其中很典型的一个，它穿插在peony的各个源文件里，而并不是一个像插件加载和注册一样具有固定的架构。反过来说，插件也是既定的架构，所以说插件也不是万能的。当然我在对文件管理器进行开发的时候，也会斟酌一个新功能是否适合用现有的插件机制进行开发，毕竟这样有利于代码的维护。
 
